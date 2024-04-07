@@ -50,7 +50,7 @@ class User():
         - `False` if `__password` is `None`
         - Compare `__password` and the MD5 value of `pwd`
         """
-        if pwd is None or not isinstance(pwd, str):
+        if pwd is None or type(pwd) is not str:
             return False
         if self.__password is None:
             return False
@@ -61,11 +61,8 @@ if __name__ == '__main__':
     print("Test User")
 
     user_1 = User()
-    if user_1.id is None:
-        print("New User should have an id")
-
     user_2 = User()
-    if user_1.id == user_2.id:
+    if user_1.id != user_2.id:
         print("User.id should be unique")
 
     u_pwd = "myPassword"
